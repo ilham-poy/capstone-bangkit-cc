@@ -1,18 +1,18 @@
-GET http://localhost:3000/users
+GET http://localhost:5000/users
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsIm5hbWUiOiJUZXMgT3JhbmciLCJlbWFpbCI6InRlc2VtYWlsQGdtYWlsLmNvbSIsImlhdCI6MTczMzg4MzYyMywiZXhwIjoxNzMzODgzNjgzfQ.94iLttpDSRxhHn2ihBpBy1fEappF3b8bk6EhnmpNWz0
 
 ###
-POST http://localhost:3000/register
+POST http://localhost:5000/register
 Content-Type: application/json
 
 {
-    "name":"Tes Orang",
-    "email":"tesemail@gmail.com",
-    "password":"999"
+    "name":"que",
+    "email":"tesemail123@gmail.com",
+    "password":"999777"
 }
 
 ###
-POST http://localhost:3000/login
+POST http://localhost:5000/login
 Content-Type: application/json
 
 {

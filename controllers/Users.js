@@ -13,16 +13,21 @@ export const getUsers = async(req,res)=>{
 }
  export const Register = async(req, res)=>{
     const {name, email, password} = req.body;
+    
 
     const salt = await bcrypt.genSalt()
     const hashPassword = await bcrypt.hash(password,salt)
     try{
-        await Users.create({
-            name: name,
-            email: email,
-            password:hashPassword
-        })
-        res.json({msg:"Register Berhasil"})
+        if(name && email && password !== null){
+            await Users.create({
+                name: name,
+                email: email,
+                password:hashPassword
+            })
+            res.json({msg:"Register Berhasil"})
+        }else{
+            res.json({msg:"Pastikan Nama, Email, Password Sudah Terisi"})
+        }
     }catch(e){
         console.log(e)
     }
