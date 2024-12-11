@@ -1,12 +1,14 @@
 GET http://localhost:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hbWUiOiJKYXdhIFlhc2ZzYW5nIE1lbmFuZyIsImVtYWlsIjoiZW1haWwxQGdtYWlsLmNvbSIsImlhdCI6MTczMzg3NjUxMiwiZXhwIjoxNzMzODc2NTQyfQ.jkSZIF2T4UljMEfb53v2gp4YlKF922R7w5qj6GUzj8c
+
 
 ###
 POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "name":"Jawa Yang Menang",
-    "email":"email@gmail.com",
+    "name":"Jawa Yasfsang Menang",
+    "email":"email1@gmail.com",
     "password":"123456"
 }
 
@@ -15,6 +17,6 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email":"email@gmail.com",
+    "email":"email1@gmail.com",
     "password":"123456"
 }

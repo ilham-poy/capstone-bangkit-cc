@@ -1,10 +1,10 @@
 import { Sequelize } from "sequelize";
 const db = new Sequelize(
-    'nama-database', 
+    'my_database', 
     'root',
-    'password-database',
+    '',
     {
-    host: "public-ip-sql",
+    host: "localhost",
     dialect:"mysql"
 })
 

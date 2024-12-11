@@ -3,7 +3,9 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 export const getUsers = async(req,res)=>{
     try {
-        const users = await Users.findAll();
+        const users = await Users.findAll(
+            {attributes:['id','name','email']}
+        );
         res.json(users);
     } catch (error) {
         console.log(error);
@@ -38,8 +40,24 @@ export const getUsers = async(req,res)=>{
         const userId = user[0].id;
         const name = user[0].name;
         const email = user[0].email;
-        const data = [{userId,name,email}]
-        res.json(data)
+        const accessToken = jwt.sign({userId,name,email},process.env.ACCESS_TOKEN_SECRET,{
+            expiresIn:'30s'
+        })
+        const refereshToken = jwt.sign({userId,name,email},process.env.REFRESH_TOKEN_SECRET,{
+            expiresIn:'1d'
+        })
+        await Users.update({referesh_token:refereshToken},{
+            where:{
+                Id:userId
+            }
+        })
+        res.cookie('refreshToken',refereshToken,{
+            httpOnly:true,
+            maxAge:24*60*60*1000,
+            secure:true
+        })
+        // const data = [{userId,name,email}]
+        res.json({accessToken})
     } catch (error) {
         res.status(404).json({msg:"Email tidak ditemukan"});
     }
