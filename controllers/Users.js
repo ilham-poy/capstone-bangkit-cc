@@ -57,7 +57,10 @@ export const getUsers = async(req,res)=>{
             secure:true
         })
         // const data = [{userId,name,email}]
-        res.json({accessToken})
+        res.json(
+            {userId,
+            name,
+            accessToken})
     } catch (error) {
         res.status(404).json({msg:"Email tidak ditemukan"});
     }
