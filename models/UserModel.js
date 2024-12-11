@@ -12,11 +12,7 @@ const Users = db.define('users',{
     },
     password:{
         type: DataTypes.STRING
-    },
-    referesh_token:{
-        type: DataTypes.TEXT
     }
-    
 },{
     freezeTableName: true
 })
